@@ -1,2 +1,513 @@
-# username.github.io
-CURSO
+<!-- index.html -->
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curso de Bateria — Macsuél Sabino Lima</title>
+  <meta name="description" content="Curso de bateria com Macsuél Sabino Lima — aulas práticas, didáticas e personalizadas. Aulas online e presenciais. Contato: +55 (11) 95450-8031" />
+
+  <!-- Google Fonts (fallback: system fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#FF5A3C;
+      --accent-2:#FFD166;
+      --bg-1:#0f1724;
+      --bg-2:#071126;
+      --glass: rgba(255,255,255,0.06);
+      --card: rgba(255,255,255,0.04);
+      --text:#E8EEF6;
+      --muted: #A8B3C7;
+      --max-width:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255,90,60,0.06), transparent),
+                  radial-gradient(800px 400px at 90% 90%, rgba(255,209,102,0.04), transparent),
+                  linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(7,17,38,0.45), rgba(7,17,38,0.25));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:flex;
+      gap:16px;
+      align-items:center;
+      padding:12px;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:var(--text);
+    }
+    .logo{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background: linear-gradient(135deg,var(--accent),#FF8E61);
+      box-shadow: 0 6px 18px rgba(255,90,60,0.12);
+      font-weight:800;
+      font-family: "Montserrat", sans-serif;
+    }
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:10px;
+      font-weight:600;
+      font-size:14px;
+    }
+    .cta{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      background: linear-gradient(90deg,var(--accent),#FF7A56);
+      color:white;
+      padding:10px 14px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow: 0 6px 30px rgba(255,90,60,0.12);
+    }
+    .ghost{
+      padding:8px 12px;
+      border-radius:10px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    main{
+      max-width:var(--max-width);
+      margin:28px auto;
+      padding:0 20px 80px;
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-top:12px;
+    }
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; text-align:center}
+    }
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      border-radius:14px;
+      padding:28px;
+      box-shadow: 0 8px 36px rgba(2,6,23,0.6);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+    h1{
+      margin:0 0 12px;
+      font-family: "Montserrat", sans-serif;
+      font-weight:800;
+      font-size:36px;
+      letter-spacing:-0.6px;
+      color: white;
+    }
+    .sub{
+      color:var(--muted);
+      margin-bottom:20px;
+      font-size:16px;
+    }
+    .features{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+    .pill{
+      background:var(--card);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:600;
+      color:var(--text);
+      font-size:14px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-top:6px;
+      flex-wrap:wrap;
+    }
+    .price{
+      font-family: "Montserrat", sans-serif;
+      font-weight:800;
+      font-size:20px;
+      color:var(--accent-2);
+      background: linear-gradient(90deg,#FFFBEB, #FFF6E0);
+      padding:6px 10px;
+      border-radius:8px;
+      color:#332B1F;
+    }
+
+    /* RIGHT: Visual */
+    .visual{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      min-height:300px;
+    }
+    .drum-wrap{
+      width:100%;
+      max-width:420px;
+      transform:translateY(-10px);
+    }
+    /* simple glow circles */
+    .float-dot{
+      position:absolute;
+      border-radius:999px;
+      filter: blur(30px);
+      opacity:0.18;
+      pointer-events:none;
+    }
+    .dot-1{width:220px;height:220px; background: linear-gradient(180deg,#FF7A56,#FFB487); left:-30px; top:-40px}
+    .dot-2{width:180px;height:180px; background: linear-gradient(180deg,#6EE7B7,#2DD4BF); right:-40px; bottom:-30px; opacity:0.12}
+    .dot-3{width:120px;height:120px; background: linear-gradient(180deg,#9F7AEA,#60A5FA); left:60px; bottom: -10px; opacity:0.12}
+
+    /* Course sections */
+    section{margin-top:28px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:20px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+    }
+    @media (max-width:980px){ .grid-3{grid-template-columns:1fr} }
+
+    .plan{
+      padding:18px;
+      border-radius:10px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .plan h3{margin:0 0 8px;font-family:"Montserrat",sans-serif}
+    .plan .price{font-size:18px}
+
+    /* testimonials */
+    .testi{display:flex;gap:14px;align-items:flex-start}
+    .avatar{
+      width:54px;height:54px;border-radius:999px;background:linear-gradient(180deg,#fff2e6,#ffd9c2);display:grid;place-items:center;color:#3b2a1a;font-weight:800;
+      font-family:"Montserrat";
+    }
+    blockquote{margin:0;color:var(--muted);font-style:italic}
+
+    /* contact */
+    .contact-grid{
+      display:grid;grid-template-columns:1fr 340px;gap:18px;
+    }
+    @media (max-width:980px){ .contact-grid{grid-template-columns:1fr} }
+
+    .contact-card{
+      padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .socials{display:flex;gap:10px;align-items:center}
+    .socials a{color:var(--text);text-decoration:none;padding:10px;border-radius:10px;background:rgba(255,255,255,0.02);font-weight:700}
+
+    footer{
+      margin-top:40px;padding:26px 0;color:var(--muted);
+      border-top:1px solid rgba(255,255,255,0.02);
+      text-align:center;
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .small{font-size:13px}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#home">
+        <div class="logo">MS</div>
+        <div>
+          <div style="font-weight:800">Macsuél Sabino Lima</div>
+          <div class="small muted">Curso de Bateria • Aulas Online & Presenciais</div>
+        </div>
+      </a>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <nav class="small">
+          <a href="#sobre">Sobre</a>
+          <a href="#planos">Planos</a>
+          <a href="#depoimentos">Depoimentos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+        <div class="cta">
+          <a class="ghost" href="https://instagram.com/macsuelsabino" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" href="https://wa.me/5511954508031?text=Ol%C3%A1%20Macsu%C3%A9l%2C%20gostaria%20de%20saber%20mais%20sobre%20o%20curso%20de%20bateria." target="_blank" rel="noopener">
+            📲 WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <div class="hero">
+      <div class="hero-card">
+        <span class="pill">Professor: <strong>Macsuél Sabino Lima</strong></span>
+        <h1>Curso de Bateria — toque com técnica, groove e confiança</h1>
+        <p class="sub">Aulas práticas, didáticas e personalizadas para todos os níveis — do iniciante que quer aprender as bases até o baterista que busca aperfeiçoamento técnico, leitura e performance ao vivo.</p>
+
+        <div class="features">
+          <div class="pill">Aulas Online ao Vivo</div>
+          <div class="pill">Aulas Presenciais (SP)</div>
+          <div class="pill">Material + Playbacks</div>
+          <div class="pill">Método prático e moderno</div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+          <a class="btn" href="https://wa.me/5511954508031?text=Ol%C3%A1%20Macsu%C3%A9l%2C%20quero%20marcar%20uma%20aula%20experimental." target="_blank" rel="noopener">Quero uma aula experimental</a>
+          <a class="ghost" href="#planos">Ver planos</a>
+          <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+            <div class="price">Aulas a partir de R$120*</div>
+            <div class="small muted">*valor referência — consulte promoção</div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px" class="small muted">
+          <strong>Contato:</strong> +55 (11) 95450-8031 • <a href="https://instagram.com/macsuelsabino" style="color:var(--text);text-decoration:none">@macsuelsabino</a>
+        </div>
+      </div>
+
+      <!-- Visual / SVG drum illustration -->
+      <div class="visual">
+        <div class="float-dot dot-1"></div>
+        <div class="float-dot dot-2"></div>
+        <div class="float-dot dot-3"></div>
+
+        <div class="drum-wrap card" aria-hidden="true" style="display:flex;align-items:center;justify-content:center">
+          <!-- Simple SVG drum kit icon (stylized) -->
+          <svg viewBox="0 0 420 260" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#FF7A56"/>
+                <stop offset="1" stop-color="#FFB487"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" x2="1">
+                <stop offset="0" stop-color="#6EE7B7"/>
+                <stop offset="1" stop-color="#2DD4BF"/>
+              </linearGradient>
+            </defs>
+
+            <!-- kick -->
+            <ellipse cx="210" cy="170" rx="120" ry="60" fill="url(#g1)" opacity="0.95" />
+            <ellipse cx="210" cy="158" rx="106" ry="46" fill="rgba(255,255,255,0.08)" />
+
+            <!-- snare -->
+            <rect x="90" y="120" rx="8" ry="8" width="70" height="28" fill="url(#g2)" transform="rotate(-6 90 120)"/>
+            <rect x="94" y="124" rx="6" ry="6" width="62" height="20" fill="rgba(255,255,255,0.06)" transform="rotate(-6 94 124)"/>
+
+            <!-- toms -->
+            <ellipse cx="150" cy="95" rx="42" ry="24" fill="rgba(255,255,255,0.06)"/>
+            <ellipse cx="210" cy="85" rx="46" ry="26" fill="rgba(255,255,255,0.07)"/>
+            <ellipse cx="270" cy="95" rx="40" ry="22" fill="rgba(255,255,255,0.05)"/>
+
+            <!-- cymbal -->
+            <ellipse cx="320" cy="58" rx="36" ry="12" fill="rgba(255,255,255,0.06)"/>
+            <ellipse cx="100" cy="60" rx="34" ry="10" fill="rgba(255,255,255,0.06)"/>
+
+            <!-- sticks (animated with CSS via transform) -->
+            <g id="sticks">
+              <rect x="178" y="35" width="6" height="90" rx="3" fill="#FFF" transform="rotate(12 178 35)" opacity="0.92"/>
+              <rect x="230" y="39" width="6" height="88" rx="3" fill="#FFF" transform="rotate(-12 230 39)" opacity="0.88"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="sobre" class="card">
+      <h2 style="margin-top:0;font-family:'Montserrat',sans-serif">Sobre o curso</h2>
+      <p class="muted">Este curso foi desenhado para quem quer aprender bateria de forma objetiva e musical. As aulas cobrem:
+        técnica (rudimentos, independência), leitura, grooves estilos (rock, pop, samba, mpb, funk), fills, preparo para apresentações, gravação e trabalho com click/produção.
+      </p>
+
+      <div style="margin-top:16px" class="grid-3">
+        <div class="plan">
+          <h3>Básico</h3>
+          <p class="small muted">Iniciação aos fundamentos: postura, tempo, padrões básicos e coordenação.</p>
+          <div style="margin-top:12px" class="price">A partir de R$120 / aula</div>
+        </div>
+
+        <div class="plan">
+          <h3>Intermediário</h3>
+          <p class="small muted">Independência de membros, fills, leitura e aplicação prática em músicas.</p>
+          <div style="margin-top:12px" class="price">A partir de R$160 / aula</div>
+        </div>
+
+        <div class="plan">
+          <h3>Avançado / Performance</h3>
+          <p class="small muted">Técnicas avançadas, preparação de show, gravação em estúdio e grooves complexos.</p>
+          <div style="margin-top:12px" class="price">Sob consulta</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curriculum / what you learn -->
+    <section id="curriculo" class="card">
+      <h2 style="margin-top:0;font-family:'Montserrat',sans-serif">O que você vai aprender</h2>
+      <ul style="margin-top:10px;color:var(--muted)">
+        <li>Rudimentos essenciais e como aplicá-los musicalmente;</li>
+        <li>Independência e coordenação entre mãos e pés;</li>
+        <li>Grooves por estilo: Rock, Pop, Funk, Samba, MPB;</li>
+        <li>Leitura rítmica e trabalho com metrônomo/click;</li>
+        <li>Preparação para shows e gravações;</li>
+        <li>Como montar um setup de bateria eficiente para treino e apresentação.</li>
+      </ul>
+    </section>
+
+    <!-- Testimonies -->
+    <section id="depoimentos" class="card">
+      <h2 style="margin-top:0;font-family:'Montserrat',sans-serif">Depoimentos</h2>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:12px">
+        <div class="testi">
+          <div class="avatar">J</div>
+          <div>
+            <strong>João P.</strong>
+            <blockquote>"As aulas com o Macsuél transformaram meu jeito de tocar. Método claro, objetivo e muito prático."</blockquote>
+            <div class="small muted">Aluno — 2024</div>
+          </div>
+        </div>
+
+        <div class="testi">
+          <div class="avatar">M</div>
+          <div>
+            <strong>Mariana R.</strong>
+            <blockquote>"Didática incrível — em poucas aulas já tocava músicas completas com confiança."</blockquote>
+            <div class="small muted">Aluna — 2025</div>
+          </div>
+        </div>
+
+        <div class="muted small">Quer enviar seu depoimento? Envie por WhatsApp: <a href="https://wa.me/5511954508031" style="color:var(--text)">+55 (11) 95450-8031</a></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contato" class="card">
+      <h2 style="margin-top:0;font-family:'Montserrat',sans-serif">Contato</h2>
+
+      <div class="contact-grid" style="margin-top:12px">
+        <div class="contact-card">
+          <p class="muted">Agende sua aula experimental ou tire dúvidas por WhatsApp:</p>
+
+          <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <a class="btn" href="https://wa.me/5511954508031?text=Ol%C3%A1%20Macsu%C3%A9l%2C%20quero%20marcar%20uma%20aula%20experimental." target="_blank" rel="noopener">📲 WhatsApp</a>
+            <a class="ghost" href="https://instagram.com/macsuelsabino" target="_blank" rel="noopener">Instagram • @macsuelsabino</a>
+          </div>
+
+          <div style="margin-top:14px" class="small muted">
+            <strong>Telefone / WhatsApp:</strong> +55 (11) 95450-8031<br/>
+            <strong>Professor:</strong> Macsuél Sabino Lima
+          </div>
+
+          <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+          <form onsubmit="event.preventDefault(); window.open('https://wa.me/5511954508031?text='+encodeURIComponent(document.getElementById('msg').value));" class="small">
+            <label for="msg" style="display:block;margin-bottom:6px">Mensagem rápida (será enviada por WhatsApp):</label>
+            <textarea id="msg" placeholder="Olá Macsuél, quero saber sobre aulas..." rows="3" style="width:100%;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--text)"></textarea>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button class="btn" type="submit">Enviar por WhatsApp</button>
+              <button type="reset" class="ghost">Limpar</button>
+            </div>
+            <div class="small muted" style="margin-top:8px">Ao enviar, o WhatsApp será aberto com sua mensagem.</div>
+          </form>
+        </div>
+
+        <div class="contact-card">
+          <h3 style="margin-top:0">Localização & horários</h3>
+          <p class="muted small">Aulas presenciais em São Paulo (endereço sob consulta). Aulas online via Zoom/Meet — horários flexíveis.</p>
+
+          <h4 style="margin-bottom:6px;margin-top:12px">Redes</h4>
+          <div class="socials">
+            <a href="https://instagram.com/macsuelsabino" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://wa.me/5511954508031" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+
+          <h4 style="margin-bottom:6px;margin-top:12px">Observação</h4>
+          <p class="muted small">Envie uma mensagem antes de agendar; respondo rápido.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <strong>Macsuél Sabino Lima</strong> — Curso de Bateria • Contato: +55 (11) 95450-8031 • <a href="https://instagram.com/macsuelsabino" style="color:inherit;text-decoration:underline">@macsuelsabino</a></div>
+      <div class="small muted" style="margin-top:8px">Desenvolvido com ❤ — personalizado para seu curso.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // Simple small animation on the SVG sticks
+    const sticks = document.querySelector('#sticks');
+    if(sticks){
+      let t = 0;
+      setInterval(()=> {
+        t = (t + 0.08) % (Math.PI*2);
+        const r1 = 12 + Math.sin(t)*3;
+        const r2 = -12 + Math.cos(t)*3;
+        sticks.children[0].setAttribute('transform', 'rotate(' + r1 + ' 178 35)');
+        sticks.children[1].setAttribute('transform', 'rotate(' + r2 + ' 230 39)');
+      }, 60);
+    }
+  </script>
+</body>
+</html>
